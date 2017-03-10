@@ -4,6 +4,42 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
+var articleone ={
+    title : 'article one',
+    heading: 'article one',
+    date: 'sep5,2016',
+    content:` <p>
+            hi this is my first web page  and i want know about fuck 
+        </p>
+        <p>
+            hi my name is mukul wat you think abot me if you thik my the fucking beast then fuckk out of my way
+        </p>`
+};
+var htmltemplate =`<html>
+    <head>
+        <title>
+            $[title]
+        </title>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+          <link href="/ui/style.css" rel="stylesheet" />
+       
+    </head>
+    <body>
+        <div class="container">
+        <div>
+            <a href="/">home</a>
+        </div>
+        <hr/>
+        <h3>
+            $[heading]
+        </h3>
+        <div>
+            $[date]
+        </div>
+      
+        </p>
+    </div>
+`
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
